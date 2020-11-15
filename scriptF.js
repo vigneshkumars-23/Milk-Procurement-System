@@ -26,20 +26,27 @@ $(function () {
 
                 response.details.forEach(function (detail) {
                     temp1.append('\
-                            <h3><b>Personal details</b></h3>\
-                            <p>\
+                            <div class="card m-auto pl-2 border-bottom-0">\
+                            <div class="card-body">\
+                            <h3 class="card-title"><b>Personal details</b></h3>\
+                            <p class="card-text">\
                             First Name : '+ detail.firstName + '<br>\
                             Last Name : '+ detail.lastName + '<br>\
                             Aadhar ID : '+ detail.aadhaarF + '<br>\
                             Gender   : '+ detail.gender + '<br>\
                             Date of Birth : '+ detail.DoB + '</p><br>\
-                            <h3><b>My Address</b></h3>\
-                            <p>Door No. : '+ detail.doorNo + '<br>\
+                            </div></div>\
+                            <div class="card m-auto pl-2">\
+                            <div class="card-body">\
+                            <h3 class="card-title"><b>My Address</b></h3>\
+                            <p class="card-text">Door No. : '+ detail.doorNo + '<br>\
                             Locality : '+ detail.locality + '<br>\
                             City : '+ detail.city + '<br>\
                             Pincode   : '+ detail.pincode + '<br>\
                             </p>\
-                           ');
+                            </div >\
+                            </div >\
+                        ');
                 });
             }
         });
@@ -63,11 +70,14 @@ $(function () {
                 tbodyEl.html('');
                 response.details.forEach(function (detail) {
                     temp1.append('\
-                            <h3><b>My Account Details</b></h3>\
-                            <p>Role : '+ detail.role + '<br>\
+                            <div class="card">\
+                            <div class="card-body">\
+                            <h3 class="card-title"><b>My Account Details</b></h3>\
+                            <p class="card-text">Role : '+ detail.role + '<br>\
                             Username : '+ detail.email + '<br>\
                             Password : '+ detail.password + '<br>\
                             </p>\
+                            </div></div>\
                            ');
                 });
             }
@@ -92,10 +102,13 @@ $(function () {
                 tbodyEl.html('');
                 response.details.forEach(function (detail) {
                     temp1.append('\
+                            <div class="card m-auto pl-2">\
+                            <div class="card-body">\
                             <h3><b>My Contact</b></h3>\
                             <p>Email ID : '+ detail.farmerEmail + '<br>\
                             Phone No. : '+ detail.phoneNo + '<br>\
                             </p>\
+                            </div></div>\
                            ');
                 });
             }
@@ -150,15 +163,23 @@ $(function () {
         theadEl.html('');
         tbodyEl.html('');
         temp2.append('\
+            <div class="container pt-3">\
             <form id="transacform">\
+                <div class="form-group">\
                 <label for="adr">Society Email </label>\
-                <input type="text" name="adr" id="adr" placeholder="Enter Society Email"/><br>\
+                <input class="form-control" type="text" name="adr" id="adr" placeholder="Enter Society Email"/>\
+                </div>\
+                <div class="form-group">\
                 <label for="fromdate">From  </label>\
-                <input type="date" name="fromdate" id="fromdate" /><br>\
+                <input class="form-control" type="date" name="fromdate" id="fromdate">\
+                </div>\
+                <div class="form-group">\
                 <label for="todate">To  </label>\
-                <input type="date" name="todate" id="todate" /><br></br>\
-                <button id="fetch">Fetch data</button><br>\
+                <input class="form-control" type="date" name="todate" id="todate" />\
+                </div>\
+                <button class="btn btn-dark" id="fetch">Fetch data</button><br>\
             </form>\
+            </div>\
             ');
 
         $('#transacform').on('submit', function (event) {
