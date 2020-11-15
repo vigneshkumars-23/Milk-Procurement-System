@@ -29,7 +29,7 @@ $(function () {
                             <div class="card m-auto pl-2 border-bottom-0">\
                             <div class="card-body">\
                             <h3 class="card-title"><b>Personal details</b></h3>\
-                            <p class="card-text">\
+                            <p class="card-text text-dark font-weight-bold">\
                             First Name : '+ detail.firstName + '<br>\
                             Last Name : '+ detail.lastName + '<br>\
                             Aadhar ID : '+ detail.aadhaarF + '<br>\
@@ -39,7 +39,7 @@ $(function () {
                             <div class="card m-auto pl-2">\
                             <div class="card-body">\
                             <h3 class="card-title"><b>My Address</b></h3>\
-                            <p class="card-text">Door No. : '+ detail.doorNo + '<br>\
+                            <p class="card-text text-dark font-weight-bold">Door No. : '+ detail.doorNo + '<br>\
                             Locality : '+ detail.locality + '<br>\
                             City : '+ detail.city + '<br>\
                             Pincode   : '+ detail.pincode + '<br>\
@@ -73,7 +73,7 @@ $(function () {
                             <div class="card">\
                             <div class="card-body">\
                             <h3 class="card-title"><b>My Account Details</b></h3>\
-                            <p class="card-text">Role : '+ detail.role + '<br>\
+                            <p class="card-text text-dark font-weight-bold">Role : '+ detail.role + '<br>\
                             Username : '+ detail.email + '<br>\
                             Password : '+ detail.password + '<br>\
                             </p>\
@@ -104,8 +104,8 @@ $(function () {
                     temp1.append('\
                             <div class="card m-auto pl-2">\
                             <div class="card-body">\
-                            <h3><b>My Contact</b></h3>\
-                            <p>Email ID : '+ detail.farmerEmail + '<br>\
+                            <h3 class="card-title"><b>My Contact</b></h3>\
+                            <p class="card-text text-dark font-weight-bold">Email ID : '+ detail.farmerEmail + '<br>\
                             Phone No. : '+ detail.phoneNo + '<br>\
                             </p>\
                             </div></div>\
@@ -133,19 +133,28 @@ $(function () {
                 tbodyEl.html('');
                 response.details.forEach(function (detail) {
                     temp1.append('\
-                            <h3><b>My Society Details</b></h3>\
-                            <p>Aadhaar ID : '+ detail.aadhaarS + '<br>\
+                            <div class="card">\
+                            <div class="card-body">\
+                            <h3 class="card-title"><b>My Society Detail</b></h3>\
+                            <p class="card-text text-dark font-weight-bold">Aadhaar ID : '+ detail.aadhaarS + '<br>\
                             Email ID : '+ detail.societyEmail + '<p>\
+                            </div></div>\
+                            <div class="card">\
+                            <div class="card-body">\
                             <h3><b>Address</b></h3>\
                             <p>Door No. : '+ detail.doorNo + '<br>\
                             Locality : '+ detail.locality + '<br>\
                             City : '+ detail.city + '<br>\
                             Pincode   : '+ detail.pincode + '</p>\
+                            </div></div>\
+                            <div class="card">\
+                            <div class="card-body">\
                             <h3><b>Billing System</b></h3>\
                             <p>Cow Milk Rate : '+ detail.basecmrate + '.Rs per litre <br>\
                             Buffalo Milk Rate : '+ detail.basebmrate + '.Rs per litre </p>\
                             <h3><b>Contact Details</b></h3>\
                             <p>Phone No. : '+ detail.phoneNo + '</p><br>\
+                            </div></div>\
                            ');
                 });
             }
