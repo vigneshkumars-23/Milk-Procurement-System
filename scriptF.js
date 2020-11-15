@@ -314,7 +314,7 @@ $(function () {
         </div>\
         `);
         var linkJS = $('body');
-        linkJS.append(`\
+        linkJS.append('\
                     function myFunction1() {\
                         var x = document.getElementById("oldpass");\
                         if (x.type === "password") {\
@@ -340,7 +340,7 @@ $(function () {
                         }\
                       }\
                     </script>\
-                    `);
+                    ');
         $('#change').on('click', function () {
             var oldpass = document.getElementById("oldpass").value;
             var newpass = document.getElementById("newpass").value;
