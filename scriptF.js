@@ -267,7 +267,7 @@ $(function () {
         theadEl.html('');
         tbodyEl.html('');
         temp2.append(`\
-        <div class="container">\
+        <br>\
         <div class="limiter">\
         <div class="container-login100>\
         <div class="wrap-login100>\
@@ -311,10 +311,10 @@ $(function () {
         </div>\
         </div>\
         </div>\
-        </div>\
         `);
         var linkJS = $('body');
         linkJS.append('\
+                    <script>\
                     function myFunction1() {\
                         var x = document.getElementById("oldpass");\
                         if (x.type === "password") {\
