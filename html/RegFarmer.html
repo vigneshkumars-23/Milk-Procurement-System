@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer - Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="icon" type="image/png" href="../public/images/icons/favicon.ico">
+        <link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css" >
+        <link rel="stylesheet" type="text/css" href="../public/fonts/iconic/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" type="text/css" href="../public/vendor/animate/animate.css">
+        <link rel="stylesheet" type="text/css" href="../public/vendor/css-hamburgers/hamburgers.min.css">
+        <link rel="stylesheet" type="text/css" href="../public/vendor/animsition/css/animsition.min.css">
+        <link rel="stylesheet" type="text/css" href="../public/vendor/select2/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="../public/vendor/daterangepicker/daterangepicker.css">
+        <link rel="stylesheet" type="text/css" href="../public/css/util.css">
+        <link rel="stylesheet" type="text/css" href="../public/css/main.css">
+    <style>
+        body {
+            background: url('https://images.unsplash.com/photo-1592494299036-7e3593f3acb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+
+        .colorme {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-transparent">
+        <span class="navbar-brand" href="#">
+            <img  src="../public/images/logo.png" width="40" height="30" class="d-inline-block align-top" alt="">
+        </span>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="navbar-brand colorme font-weight-bold" href="https://aavinmilk.com" target="_blank">TNMS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link colorme font-weight-bold" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link colorme font-weight-bold" href="login.html">Login</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle active font-weight-bold" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Reg-Farmer
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="RegFarmer.html">Farmer</a>
+                    <a class="dropdown-item" href="RegSociety.html">Society</a>
+                    <a class="dropdown-item" href="RegChilling.html">Chilling System</a>
+                    <a class="dropdown-item" href="RegIndustry.html">Industry</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="limiter">
+            <div class="container-login100">
+                <div class="wrap-login100">
+                    <form class="login100-form validate-form" action="http://localhost:8081/new_farmer" method="POST"
+                        target="_blank">
+                        <span class="login100-form-title p-b-26">
+                            Farmer Sign-Up
+                        </span>
+                        <!--<span class="login100-form-title p-b-48">
+                            <i class="zmdi zmdi-font"></i>
+                        </span>!-->
+                        <div class="wrap-input100 validate-input">
+                            <label for="Fname">First Name</label>
+                            <input class="input100" type="text" id="Fname" name="Fname"
+                                placeholder="Enter your First Name">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="Lname">Last Name</label>
+                            <input class="input100" type="text" id="Lname" name="Lname"
+                                placeholder="Enter your Last Name">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <input type="radio" id="male" name="Gender" value="Male">
+                            <label for="male">Male</label>
+                            <input type="radio" id="female" name="Gender" value="Female">
+                            <label for="female">Female</label>
+                            <input type="radio" id="other" name="Gender" value="Others">
+                            <label for="other">Other</label>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="dob">DOB</label>
+                            <input class="input100" type="date" id="dob" name="dob" required>
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="Faadhaar">Aadhaar Number</label>
+                            <input class="input100" type="tel" id="Faadhaar" name="Faadhaar" maxlength=12 minlength=12
+                                pattern="[0-9]{12}" placeholder="Enter your Aadhaar No">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="AadhaarS">Society Aadhaar No</label>
+                            <input class="input100" type="tel" id="AadhaarS" maxlength=12 minlength=12
+                                pattern="[0-9]{12}" name="Saadhaar" placeholder="Enter your Society's Aadhaar No">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="DoorNo">Door No</label>
+                            <input class="input100" type="text" id="DoorNo" name="DoorNo"
+                                placeholder="Enter your DoorNo">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="Locality">Locality</label>
+                            <input class="input100" type="text" id="Locality" name="Locality"
+                                placeholder="Enter your Locality">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="City">City</label>
+                            <input class="input100" type="text" id="City" name="City" placeholder="Enter your City">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="Pincode">Pincode</label>
+                            <input class="input100" type="tel" id="Pincode" minlength="6" maxlength="6" name="Pincode"
+                                placeholder="Enter your Pincode">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="ph1">Phone Number</label>
+                            <input class="input100" type="tel" id="ph1" pattern="[0-9]{10}" name="Phoneno1"
+                                placeholder="Enter your Mobile No">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input">
+                            <label for="ph2">Phone Number(Optional)</label>
+                            <input class="input100" type="tel" id="ph2" pattern="[0-9]{10}" name="Phoneno2"
+                                placeholder="Enter your optional Phone No">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                            <label for="Email">Email</label>
+                            <input class="input100" type="text" id="Email" name="email"
+                                placeholder="Enter your Email ID">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <label for="PASSWORD">Password</label>
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <span class="btn-show-pass">
+                                <i class="zmdi zmdi-eye m-t-5" onclick="myFunction()"></i>
+                            </span>
+                            <input class="input100" type="password" id="PASSWORD" name="password"
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Enter your Password">
+                            <span class="focus-input100"></span>
+                        </div>
+                        <div class="container-login100-form-btn">
+                            <div class="wrap-login100-form-btn">
+                                <div class="login100-form-bgbtn"></div>
+                                <button class="login100-form-btn" type="submit">
+                                    Register
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+        <script src="../public/js/passvisible.js"></script>
+</body>
+
+</html>

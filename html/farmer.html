@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Farmer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="../public/images/icons/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="../public/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/fonts/iconic/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="../public/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="../public/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/main.css">
+    <!-- <link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvNzM2NTQyNTcyNTI4NDAyNDYyLzc3NzU5Mjk2NDA5MTYwOTEwMi9mYXJtZXIuaHRtbA"/> -->
+    <style>
+        * {
+            font-family: 'Roboto Condensed', sans-serif;
+        }
+
+        body {
+            background: url('https://images.unsplash.com/photo-1592494299036-7e3593f3acb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            background-size: cover;
+            -o-background-size: cover;
+        }
+
+        .colorme {
+            color: white;
+        }
+
+        .removeline {
+            border-bottom: 0 solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-transparent">
+        <span class="navbar-brand" href="#">
+            <img src="../public/images/logo.png" width="40" height="30" class="d-inline-block align-top" alt="">
+        </span>
+        <ul class="nav nav-tabs w-100">
+            <li class="nav-item">
+                <a class="navbar-brand colorme font-weight-bold text-center" href="https://aavinmilk.com"
+                    target="_blank">TNMS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </li>
+            <!--
+            <li class="nav-item">
+                <a class="nav-link colorme font-weight-bold" href="home.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link colorme font-weight-bold" href="login.html">Login</a>
+            </li>
+            -->
+            <li class="nav-item dropdown ml-auto" >
+                <a class="nav-link dropdown-toggle colorme font-weight-bold" href="#" id="navbarDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                   
+                    <p id="username">rajfarmer@gmail.com</p>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="login.html">Log Out</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="bg-transparent">
+            <h1 class="display-4 text-center">Farmer</h1>
+        </div>
+        <div class="bg-light">
+            <div class="row">
+                <span class="border border-primary bg-dark align-content-center">
+                    <div class="col-3 p-0 align-middle">
+                        <div class="btn btn-group-vertical">
+                            <button class="btn btn-dark" id="get-me">My Details</button>
+                            <button class="btn btn-dark" id="get-account">My Account</button>
+                            <button class="btn btn-dark" id="get-contact">My Contact</button>
+                            <button class="btn btn-dark" id="get-society">My Society</button>
+                            <button class="btn btn-dark" id="transac">Transactions</button>
+                            <button class="btn btn-dark" id="changep" name="changep">Change
+                                password</button>
+                        </div>
+                    </div>
+                </span>
+                <div class="col-9">
+                    <!--<h1 class="diplay-4">Farmer</h1>-->
+                    <!-- <p class="lead text-right" id="username">rajfarmer@gmail.com</p> -->
+                    <div id="display" name="display">
+                    </div><br>
+                    <div name="details" id="details">
+                    </div><br>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+
+                            <thead>
+
+                            </thead>
+
+                            <tbody>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../jquery.js"></script>
+    <script src="../scriptF.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
