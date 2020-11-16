@@ -299,7 +299,7 @@ $(function () {
         temp2.append(`\
         <br>\
         <div class="container pt-3>\
-        <form class=">
+        <form>\
         <div class="form-group">\
         <label for="oldpass">Current password </label>\
         <input class="input-group-sm form-control w-75" type="password" id="oldpass" name="oldpass">\
