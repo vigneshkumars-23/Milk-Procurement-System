@@ -11,7 +11,7 @@ $(function () {
             tbodyEl.html('');
 
         $.ajax({
-            url: 'http://localhost:8081/society/get-personal',
+            url: 'http://localhost:8081/industry/get-personal',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ username: document.getElementById("username").innerHTML }),
@@ -23,11 +23,11 @@ $(function () {
                             <div class="card m-auto pl-2 border-bottom-0">\
                             <div class="card-body">\
                             <h3 class="card-title"><b>Personal details</b></h3>\
-                            <p class="card-text text-dark font-weight-bold">Society aadhaar : '+ response.details[0].aadhaarS + '<br>\
-                            Chilling aadhaar : '+ response.details[0].aadhaarC + '<br>\
-                            Email : '+ response.details[0].societyEmail + '<br>\
+                            <p class="card-text text-dark font-weight-bold">Industry aadhaar : '+ response.details[0].aadhaarI + '<br>\
+                            First Name : '+ response.details[0].firstName + '<br>\
+                            Last Name : '+ response.details[0].lastName + '<br>\
+                            Email : '+ response.details[0].industryEmail + '<br>\
                             Cow Milk Rate   : '+ response.details[0].basecmrate + '<br>\
-                            Buffalo Milk Rate: '+ response.details[0].basebmrate + '<br>\
                             Buffalo Milk Rate: '+ response.details[0].basebmrate + '<br>\
                             Door No: '+ response.details[0].doorNo + '<br>\
                             Locality: '+ response.details[0].locality + '<br>\
@@ -115,7 +115,7 @@ $(function () {
             else {
 
                 $.ajax({
-                    url: 'http://localhost:8081/society/change-pass',
+                    url: 'http://localhost:8081/industry/change-pass',
                     method: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({ username: document.getElementById("username").innerHTML, oldpass: oldpass, newpass: newpass }),
@@ -135,46 +135,46 @@ $(function () {
         });
     });
 
-    $('#get-farmertransac').on('click', function () {
 
-        var temp = $('div#display');
-        temp.html('');
+
+    $('#get-transacDetails').on('click', function () {
+
+        document.getElementById("display").innerHTML="";
         var tbodyEl = $('tbody');
         var theadEl = $('thead');
         theadEl.html('');
         tbodyEl.html('');
 
+        var temp = $('div#display');
+        temp.html('');
         temp.append('\
-                <div class="container pt-3">\
-                <form id="transacform">\
-                    <div class="form-group">\
-                    <label for="faadhaar">Farmer aadhaar</label>\
-                    <input class="form-control w-50" type="text" id="faadhaar" name="faadhaar">\
-                    </div>\
-                    <div class="form-group">\
-                    <label for="fromdate">From  </label>\
-                    <input class="form-control w-50" type="date" id="fromdate" name="fromdate">\
-                    </div>\
-                    <div class="form-group">\
-                    <label for="todate">To  </label>\
-                    <input class="form-control w-50" type="date" id="todate" name="todate">\
-                    </div>\
-                    <button class="btn btn-dark">submit</button><br>\
-                </form>\
+            <div class="container pt-3">\
+            <form id="transacform">\
+                <div class="form-group">\
+                <label for="caadhaar">Chilling aadhaar</label>\
+                <input class="form-control" type="text" id="caadhaar" name="caadhaar"><br>\
                 </div>\
-                ');
+                <div class="form-group">\
+                <label for="fromdate">From :  </label>\
+                <input class="form-control" type="date" id="fromdate" name="fromdate"><br>\
+                </div>\
+                <div class="form-group">\
+                <label for="todate">To :  </label>\
+                <input class="form-control" type="date" id="todate" name="todate"><br>\
+                </div>\
+                <button class="btn btn-dark">Submit</button><br>\
+            </form>\
+            </div>\
+            ');
 
         $('#transacform').on('submit', function (event) {
             event.preventDefault();
-            var aadhaar = jQuery("#faadhaar").val();
+            var aadhaar = jQuery("#caadhaar").val();
             var fdate = jQuery("#fromdate").val();
             var tdate = jQuery("#todate").val();
-            console.log(aadhaar);
-            console.log("from date: "+fdate);
-            console.log("to date: "+tdate);
 
             $.ajax({
-                url: 'http://localhost:8081/society/get-farmertransac',
+                url: 'http://localhost:8081/industry/get-transacDetails',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({ username: document.getElementById("username").innerHTML, aadhaar: aadhaar, fdate: fdate, tdate: tdate }),
@@ -187,114 +187,23 @@ $(function () {
                     tbodyEl.html('');
 
                     theadEl.append(`
-                                    <tr>
-                                        <th>Transaction ID</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Farmer Email</th>
-                                        <th>Cow Milk (litres)</th>
-                                        <th>Cow Milk Fat (%)</th>
-                                        <th>Amount-1</th>
-                                        <th>Buffalo Milk (litres)</th>
-                                        <th>Buffalo Milk Fat (%)</th>
-                                        <th>Amount-2</th>
-                                        <th>Total</th>
-                                    </tr>
-                                `);
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Date</th>
+                                    <th>Time</th>
+                                    <th>Chilling Email</th>
+                                    <th>Cow Milk (litres)</th>
+                                    <th>Cow Milk Fat (%)</th>
+                                    <th>Amount-1</th>
+                                    <th>Buffalo Milk (litres)</th>
+                                    <th>Buffalo Milk Fat (%)</th>
+                                    <th>Amount-2</th>
+                                    <th>Total</th>
+                                </tr>
+                            `);
 
 
                     response.details.forEach(function (detail) {
-                        tbodyEl.append('\
-                                    <tr>\
-                                        <td class="id">' + detail.transacId + '</td>\
-                                        <td class="id">' + detail.date + '</td>\
-                                        <td class="id">' + detail.time + '</td>\
-                                        <td class="id">' + detail.farmerEmail + '</td>\
-                                        <td class="id">' + detail.cowMilk + ' L</td>\
-                                        <td class="id">' + detail.CMFatPercent + ' %</td>\
-                                        <td class="id">' + detail.amount1 + ' . Rs</td>\
-                                        <td class="id">' + detail.buffaloMilk + ' L</td>\
-                                        <td class="id">' + detail.BMFatPercent + ' %</td>\
-                                        <td class="id">' + detail.amount2 + ' . Rs</td>\
-                                        <td class="id">' + detail.total + ' . Rs</td>\
-                                    </tr>\
-                                    ');
-                    });
-                }
-
-
-            });
-
-        });
-
-    });
-
-
-
-    $('#ownrecords').on('click', function () {
-
-        var temp = $('div#display');
-        temp.html('');
-        var tbodyEl = $('tbody');
-        var theadEl = $('thead');
-        theadEl.html('');
-        tbodyEl.html('');
-
-        temp.append('\
-                <div class="container pt-3">\
-                <form id="transacform">\
-                    <div class="form-group">\
-                    <label for="fromdate">From :  </label>\
-                    <input class="form-control w-50" type="date" id="fromdate" name="fromdate">\
-                    </div>\
-                    <div class="form-group">\
-                    <label for="todate">To :  </label>\
-                    <input class="form-control w-50" type="date" id="todate" name="todate">\
-                    </div>\
-                    <button class="btn btn-dark">Submit</button><br>\
-                </form>\
-                </div>\
-                ');
-
-        $('#transacform').on('submit', function (event) {
-            
-            event.preventDefault();
-            var fdate = jQuery("#fromdate").val();
-            var tdate = jQuery("#todate").val();
- 
-
-            $.ajax({
-                url: 'http://localhost:8081/society/get-ownrecords',
-                method: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify({ username: document.getElementById("username").innerHTML, fdate: fdate, tdate: tdate }),
-                success: function (response) {
-
-                    var tbodyEl = $('tbody');
-                    var theadEl = $('thead');
-
-                    theadEl.html('');
-                    tbodyEl.html('');
-
-                    theadEl.append(`
-                                    <tr>
-                                        <th>Transaction ID</th>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Chilling Email</th>
-                                        <th>Cow Milk (litres)</th>
-                                        <th>Cow Milk Fat (%)</th>
-                                        <th>Amount-1</th>
-                                        <th>Buffalo Milk (litres)</th>
-                                        <th>Buffalo Milk Fat (%)</th>
-                                        <th>Amount-2</th>
-                                        <th>Total</th>
-                                    </tr>
-                                `);
-
-
-                    response.details.forEach(function (detail) {
-                        console.log(detail);
                         tbodyEl.append('\
                                     <tr>\
                                         <td class="id">' + detail.transacId + '</td>\
@@ -311,6 +220,7 @@ $(function () {
                                     </tr>\
                                     ');
                     });
+
                 }
 
 
@@ -318,56 +228,12 @@ $(function () {
 
         });
 
-
     });
 
 
 
-    $('#get-farmer').on('click', function (event) {
-                
-        var temp = $('div#display');
-        temp.html('');
-        var tbodyEl = $('tbody');
-        var theadEl = $('thead');
-        theadEl.html('');
-        tbodyEl.html('');
 
-        $.ajax({
-            url: 'http://localhost:8081/society/get-farmer',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ username: document.getElementById("username").innerHTML }),
-            success: function (response) {
-                var tbodyEl = $('tbody');
-                var theadEl = $('thead');
-
-                theadEl.html('');
-                tbodyEl.html('');
-
-                theadEl.append(`
-                        <tr>
-                            <th>First Name: </th>
-                            <th>Last Name: </th>
-                            <th>Aadhaar</th>
-                            <th>Farmer Email</th>
-                        </tr>
-                    `);
-
-
-                response.details.forEach(function (detail) {
-                    console.log(detail);
-                    tbodyEl.append('\
-                        <tr>\
-                        <td class="id">' + detail.firstName + '</td>\
-                        <td class="id">' + detail.lastName + '</td>\
-                        <td class="id">' + detail.aadhaarF + '</td>\
-                        <td class="id">' + detail.farmerEmail + '</td>\
-                        </tr>\
-                        ');
-                });
-            }
-        });
-    });
+  
 
     
 
@@ -387,8 +253,8 @@ $(function () {
             <form id="inputdetails">\
             <div class="float-left m-1 w-auto">\
             <div class="form-group">\
-            <label for="faadhaar">Farmer aadhaar</label>\
-            <input class="form-control" type="text" id="faadhaar" name="faadhaar">\
+            <label for="caadhaar">Chilling aadhaar</label>\
+            <input class="form-control" type="text" id="caadhaar" name="caadhaar">\
             </div>\
             <div class="form-group">\
             <label for="date">Date</label>\
@@ -416,6 +282,14 @@ $(function () {
             <label for="buffalomilkfatpercent">Buffalo milk percent:  </label>\
             <input class="form-control" type="number" id="buffalomilkfatpercent" step=0.01 name="buffalomilkfatpercent">\
             </div>\
+            <div class="form-group">\
+            <label for="driver">Driver : </label>\
+            <input class="form-control" type="text" id="driver" name="driver">\
+            </div>\
+            <div class="form-group">\
+            <label for="number">Number : </label>\
+            <input class="form-control" type="number" id="number" name="number">\
+            </div>\
             <button class="btn btn-dark">submit</button>\
             </div>\
             </form>\
@@ -427,20 +301,22 @@ $(function () {
         $('#inputdetails').on('submit', function (event) {
             event.preventDefault();
 
-            var faadhaar1 = jQuery("#faadhaar").val();
+            var caadhaar1 = jQuery("#caadhaar").val();
             var date1 = jQuery("#date").val();
             var time1 = jQuery("#time").val();
             var cowmilk1 = jQuery("#cowmilk").val();
             var buffalomilk1 = jQuery("#buffalomilk").val();
             var cowmilkfatpercent1 = jQuery("#cowmilkfatpercent").val();
             var buffalomilkfatpercent1 = jQuery("#buffalomilkfatpercent").val();
+            var number1 = jQuery("#number").val();
+            var driver1 = jQuery("#driver").val();
 
             $.ajax({
 
-                url: 'http://localhost:8081/society/enterdata',
+                url: 'http://localhost:8081/industry/enterdata',
                 method: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({ username: document.getElementById("username").innerHTML, faadhaar: faadhaar1, transacid: Math.floor((Math.random() * 100000) + 1), date: date1, time: time1, cowmilk: cowmilk1, buffalomilk: buffalomilk1, cowmilkfatpercent: cowmilkfatpercent1, buffalomilkfatpercent: buffalomilkfatpercent1 }),
+                data: JSON.stringify({ username: document.getElementById("username").innerHTML, caadhaar: caadhaar1, transacid: Math.floor((Math.random() * 100000) + 1), date: date1, time: time1, cowmilk: cowmilk1, buffalomilk: buffalomilk1, cowmilkfatpercent: cowmilkfatpercent1, buffalomilkfatpercent: buffalomilkfatpercent1, number: number1,driver: driver1 }),
                 success: function (response) {
                     document.getElementById("display").innerHTML += response;
                 }

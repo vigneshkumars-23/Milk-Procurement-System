@@ -2,10 +2,11 @@
 <html>
 
 <head>
-    <title>Industry</title>
+    <title>Farmer</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farmer</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="../public/images/icons/favicon.ico">
@@ -19,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="../public/vendor/daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="../public/css/util.css">
     <link rel="stylesheet" type="text/css" href="../public/css/main.css">
+    <!-- <link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9jZG4uZGlzY29yZGFwcC5jb20vYXR0YWNobWVudHMvNzM2NTQyNTcyNTI4NDAyNDYyLzc3NzU5Mjk2NDA5MTYwOTEwMi9mYXJtZXIuaHRtbA"/> -->
     <style>
         * {
             font-family: 'Roboto Condensed', sans-serif;
@@ -38,23 +40,6 @@
 
         .removeline {
             border-bottom: 0 solid white;
-        }
-
-        td {
-            border: 1px solid black;
-        }
-
-        /* #cnts{
-                padding: 0px;
-                margin: 0px;
-            } */
-
-        div {
-            padding: 0px;
-        }
-
-        #display {
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -85,7 +70,7 @@
             <li class="nav-item dropdown ml-auto pr-0">
                 <a class="nav-link dropdown-toggle colorme font-weight-bold" href="#" id="navbarDropdown" role="button"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="pl-0 nav-item" id="username">aavinindustry@gmail.com</span>
+                    <span class="pl-0 nav-item" id="username"><%=username%></span>
                 </a>
                 <div class="dropdown-menu inline" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="login.html">Log Out</a>
@@ -95,23 +80,30 @@
     </nav>
     <div class="container">
         <div class="bg-transparent">
-            <h1 class="display-4 text-center">Industry</h1>
+            <h1 class="display-4 text-center">Farmer</h1>
         </div>
         <div class="bg-light">
             <div class="row">
                 <span class="border border-primary bg-dark align-content-center">
                     <div class="col-3 p-0 align-middle">
                         <div class="btn btn-group-vertical">
-                            <button class="btn btn-dark" id="get-personal">My details</button>
-                            <button class="btn btn-dark" id="get-chilling">My Chilling Systems</button>
-                            <button class="btn btn-dark" id="transacDetails">Transaction Details</button>
-                            <button class="btn btn-dark" id="enterdata">Transaction Entry</button>
-                            <button class="btn btn-dark" id="change-pass">Change Password</button>
+                            <button class="btn btn-dark" id="get-me">My Details</button>
+                            <button class="btn btn-dark" id="get-account">My Account</button>
+                            <button class="btn btn-dark" id="get-society">My Society</button>
+                            <button class="btn btn-dark" id="transac">Transactions</button>
+                            <button class="btn btn-dark" id="changep" name="changep">Change
+                                password</button>
                         </div>
                     </div>
                 </span>
                 <div class="col-9">
-                    <div id="display"></div>
+                    <h1 class="diplay-4">Farmer</h1>
+                    <p class="lead text-right" id="username"><%=username%></p>
+                    <div id="display" name="display">
+                    </div><br>
+                    <div name="details" id="details">
+                    </div><br>
+
                     <div class="table-responsive">
                         <table class="table table-bordered">
 
@@ -129,27 +121,17 @@
             </div>
         </div>
     </div>
-    <!--<h3 id="username">aavinindustry@gmail.com</h3>-->
-
-
-    <!-- <form id="create-form">
-        <input type="text" id="create-input">
-        <button>Create/POST</button>
-    </form> -->
-
-
-    <script type="text/javascript"
-        src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=haeJ7mXPYWWIEwY-NjJ69_NABt7KGiBWmIVHUD04mi_UnVbtAeWlF2TMw67QjhMwo8xN8IYC8qAGP0MUq4ZDb4uuZxFQ-NUuIDzKhF5hAUq8sMUB_OUqM6UkmmdY5DUpoTBFE-fhvn4Cq3YDplTgoA"
-        charset="UTF-8"></script>
+    <script src="../jquery.js"></script>
+    <script src="../scriptF.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
-    <script src="../jquery.js"></script>
-    <script src="../scriptI.js"></script>
-
 </body>
 
 </html>
