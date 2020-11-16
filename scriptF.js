@@ -298,48 +298,27 @@ $(function () {
         tbodyEl.html('');
         temp2.append(`\
         <br>\
-        <div class="limiter">\
-        <div class="container-login100>\
-        <div class="wrap-login100>\
-        <form class="login100-form validate-form align-center">\
-        <span class="login100-form-title p-b-26">\
-        Password Change\
-        </span>\
-        <div class="form-group wrap-input100 validate-input">\
+        <div class="container pt-3>\
+        <form class=">
+        <div class="form-group">\
         <label for="oldpass">Current password </label>\
-        <span class="btn-show-pass">\
-            <i class="zmdi zmdi-eye m-t-5" onclick=myFunction1() ></i>\
-        </span>\
-        <input class="input100" type="password" id="oldpass" name="oldpass">\
-        <span class="focus-input100"></span>
+        <input class="input-group-sm form-control w-75" type="password" id="oldpass" name="oldpass">\
+        <input class="p-1 m-1 ml-0" type="checkbox" onclick=myFunction1()>Show Password\
         </div>\
-        <div class="form-group wrap-input100 validate-input">\
+        <div class="form-group">\
         <label for="newpass">New password </label>\
-        <span class="btn-show-pass">\
-            <i class="zmdi zmdi-eye m-t-5" onclick=myFunction2() ></i>\
-        </span>\
-        <input class="input100" type="password" id="newpass" name="newpass">\
-        <span class="focus-input100"></span>
+        <input class="input-group-sm form-control w-75" type="password" id="newpass" name="newpass">\
+        <input class="p-1 m-1 ml-0" type="checkbox" onclick=myFunction2()>Show Password\
         </div>\
-        <div class="form-group wrap-input100 validate-input">\
+        <div class="form-group">\
         <label for="confpass">Confirm password </label>\
-        <span class="btn-show-pass">\
-            <i class="zmdi zmdi-eye m-t-5" onclick=myFunction3() ></i>\
-        </span>\
-        <input class="input100" type="password" id="confpass" name="confpass">\
-        <span class="focus-input100"></span>
+        <input class="input-group-sm form-control w-75" type="password" id="confpass" name="confpass">\
+        <input class="p-1 m-1 ml-0" type="checkbox" onclick=myFunction3()>Show Password\
         </div>\
-        <div class="container-login100-form-btn">\
-            <div class="wrap-login100-form-btn">\
-                <div class="login100-form-bgbtn"></div>\
-                    <button class="login100-form-btn" id="change">\
-                        Change\
-                    </button>\
-            </div>\
-        </div>\
+        <button class="btn btn-dark" id="change">\
+                Confirm\
+        </button>\
         </form>\
-        </div>\
-        </div>\
         </div>\
         `);
         var linkJS = $('body');
