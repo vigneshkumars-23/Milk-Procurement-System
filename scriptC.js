@@ -135,7 +135,7 @@ $(function () {
                 <label for="todate">To :  </label>\
                 <input class="form-control" type="date" id="todate" name="todate"><br>\
                 </div>\
-                <button>submit</button><br>\
+                <button class="btn btn-dark">Submit</button><br>\
             </form>\
             </div>\
             ');
@@ -322,7 +322,6 @@ $(function () {
         temp.append('\
         <div class="container pt-3 clearfix">\
         <form id="inputdetails">\
-        <div class="float-left m-1 w-auto">\
         <div class="form-group">\
         <label for="saadhaar">Society aadhaar</label>\
         <input type="text" id="saadhaar" name="saadhaar"><br>\
