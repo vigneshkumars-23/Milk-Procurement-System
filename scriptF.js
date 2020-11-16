@@ -4,7 +4,7 @@ $(function () {
 
         console.log(document.getElementById("username").innerHTML);
         $.ajax({
-            url: 'http://localhost:8081/mydetails',
+            url: 'http://localhost:8081/farmer/mydetails',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ username: document.getElementById("username").innerHTML }),
@@ -54,7 +54,7 @@ $(function () {
 
     $('#get-account').on('click', function () {
         $.ajax({
-            url: 'http://localhost:8081/myaccount',
+            url: 'http://localhost:8081/farmer/myaccount',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ username: document.getElementById("username").innerHTML }),
@@ -86,7 +86,7 @@ $(function () {
 
     $('#get-contact').on('click', function () {
         $.ajax({
-            url: 'http://localhost:8081/mycontact',
+            url: 'http://localhost:8081/farmer/mycontact',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ username: document.getElementById("username").innerHTML }),
@@ -104,8 +104,7 @@ $(function () {
                     temp1.append('\
                             <div class="card m-auto pl-2">\
                             <div class="card-body">\
-                            <h3 class="card-title"><b>My Contact</b></h3>\
-                            <p class="card-text text-dark font-weight-bold">Email ID : '+ detail.farmerEmail + '<br>\
+                            <p class="card-text text-dark font-weight-bold"><br>\
                             Phone No. : '+ detail.phoneNo + '<br>\
                             </p>\
                             </div></div>\
@@ -117,7 +116,7 @@ $(function () {
 
     $('#get-society').on('click', function () {
         $.ajax({
-            url: 'http://localhost:8081/mysociety',
+            url: 'http://localhost:8081/farmer/mysociety',
             method: 'POST',
             contentType: 'application/json',
             data: JSON.stringify({ username: document.getElementById("username").innerHTML }),
@@ -141,19 +140,22 @@ $(function () {
                             </div></div>\
                             <div class="card">\
                             <div class="card-body">\
-                            <h3><b>Address</b></h3>\
-                            <p>Door No. : '+ detail.doorNo + '<br>\
+                            <h3 class="card-title"><b>Address</b></h3>\
+                            <p class="card-text text-dark font-weight-bold">Door No. : '+ detail.doorNo + '<br>\
                             Locality : '+ detail.locality + '<br>\
                             City : '+ detail.city + '<br>\
                             Pincode   : '+ detail.pincode + '</p>\
                             </div></div>\
                             <div class="card">\
                             <div class="card-body">\
-                            <h3><b>Billing System</b></h3>\
-                            <p>Cow Milk Rate : '+ detail.basecmrate + '.Rs per litre <br>\
-                            Buffalo Milk Rate : '+ detail.basebmrate + '.Rs per litre </p>\
-                            <h3><b>Contact Details</b></h3>\
-                            <p>Phone No. : '+ detail.phoneNo + '</p><br>\
+                            <h3 class="card-title"><b>Billing System</b></h3>\
+                            <p class="card-text text-dark font-weight-bold">Cow Milk Rate : '+ detail.basecmrate + '.Rs per Kg of Fat <br>\
+                            Buffalo Milk Rate : '+ detail.basebmrate + '.Rs per Kg of Fat </p>\
+                            </div></div>\
+                            <div class="card">\
+                            <div class="card-body">\
+                            <h3 class="card-title"><b>Contact Details</b></h3>\
+                            <p class="card-text text-dark font-weight-bold">Phone No. : '+ detail.phoneNo + '</p><br>\
                             </div></div>\
                            ');
                 });
@@ -174,10 +176,6 @@ $(function () {
         temp2.append('\
             <div class="container pt-3">\
             <form id="transacform">\
-                <div class="form-group">\
-                <label for="adr">Society Email </label>\
-                <input class="form-control" type="text" name="adr" id="adr" placeholder="Enter Society Email"/>\
-                </div>\
                 <div class="form-group">\
                 <label for="fromdate">From  </label>\
                 <input class="form-control" type="date" name="fromdate" id="fromdate">\
@@ -205,7 +203,7 @@ $(function () {
             console.log(todate);*/
 
             $.ajax({
-                url: 'http://localhost:8081/fetchfarmer',
+                url: 'http://localhost:8081/farmer/fetchfarmer',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({ username: document.getElementById("username").innerHTML, mailS: mailS, fromdate: fdate, todate: tdate }),
@@ -244,9 +242,7 @@ $(function () {
                             <th>Date</th>
                             <th>Time</th>
                             <th>Farmer Email</th>
-                            <th>Farmer Aadhaar</th>
                             <th>Society Email</th>
-                            <th>Society Aadhaar</th>
                             <th>Cow Milk (litres)</th>
                             <th>Cow Milk Fat (%)</th>
                             <th>Amount-1</th>
@@ -259,25 +255,20 @@ $(function () {
 
 
                         response.details.forEach(function (value) {
-                            console.log(value);
-                            var amt1 = ((value.basecmrate) - (value.CMFatPercent)) * (value.cowMilk);
-                            var amt2 = ((value.basebmrate) - (value.BMFatPercent)) * (value.buffaloMilk);
                             tbodyEl.append('\
                                     <tr>\
                                     <td class="id">' + value.transacId + '</td>\
                                     <td class="id">' + value.date + '</td>\
                                     <td class="id">' + value.time + '</td>\
                                     <td class="id">' + value.farmerEmail + '</td>\
-                                    <td class="id">' + value.aadhaar1 + '</td>\
                                     <td class="id">' + value.societyEmail + '</td>\
-                                    <td class="id">' + value.aadhaar2 + '</td>\
                                     <td class="id">' + value.cowMilk + ' L</td>\
                                     <td class="id">' + value.CMFatPercent + ' %</td>\
-                                    <td class="id">' + amt1 + ' . Rs</td>\
+                                    <td class="id">' + value.amount1 + ' . Rs</td>\
                                     <td class="id">' + value.buffaloMilk + ' L</td>\
                                     <td class="id">' + value.BMFatPercent + ' %</td>\
-                                    <td class="id">' + amt2 + ' . Rs</td>\
-                                    <td class="id">' + (amt1 + amt2) + ' . Rs</td>\
+                                    <td class="id">' + value.amount2 + ' . Rs</td>\
+                                    <td class="id">' + value.total + ' . Rs</td>\
                                     </tr>\
                         ');
                         });
@@ -361,7 +352,7 @@ $(function () {
             else {
 
                 $.ajax({
-                    url: 'http://localhost:8081/changepass',
+                    url: 'http://localhost:8081/farmer/changepass',
                     method: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify({ username: document.getElementById("username").innerHTML, oldpass: oldpass, newpass: newpass }),
