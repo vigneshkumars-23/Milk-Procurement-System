@@ -24,30 +24,35 @@ $(function () {
                 String formattedDate = outputFormat.format(date);*/
                 //System.out.println(formattedDate);
 
-                response.details.forEach(function (detail) {
+                
                     temp1.append('\
                             <div class="card m-auto pl-2 border-bottom-0">\
                             <div class="card-body">\
                             <h3 class="card-title"><b>Personal details</b></h3>\
                             <p class="card-text text-dark font-weight-bold">\
-                            First Name : '+ detail.firstName + '<br>\
-                            Last Name : '+ detail.lastName + '<br>\
-                            Aadhar ID : '+ detail.aadhaarF + '<br>\
-                            Gender   : '+ detail.gender + '<br>\
-                            Date of Birth : '+ detail.DoB + '</p><br>\
+                            First Name : '+ response.details[0].firstName + '<br>\
+                            Last Name : '+ response.details[0].lastName + '<br>\
+                            Aadhar ID : '+ response.details[0].aadhaarF + '<br>\
+                            Gender   : '+ response.details[0].gender + '<br>\
+                            Date of Birth : '+ response.details[0].DoB + '<br>\
+                            Phone NO: '+ response.details[0].phoneNo+'</p><br>\
                             </div></div>\
+                            ');
+
+
+                            temp1.append('\
                             <div class="card m-auto pl-2">\
                             <div class="card-body">\
                             <h3 class="card-title"><b>My Address</b></h3>\
-                            <p class="card-text text-dark font-weight-bold">Door No. : '+ detail.doorNo + '<br>\
-                            Locality : '+ detail.locality + '<br>\
-                            City : '+ detail.city + '<br>\
-                            Pincode   : '+ detail.pincode + '<br>\
+                            <p class="card-text text-dark font-weight-bold">Door No. : '+ response.details[0].doorNo + '<br>\
+                            Locality : '+ response.details[0].locality + '<br>\
+                            City : '+ response.details[0].city + '<br>\
+                            Pincode   : '+ response.details[0].pincode + '<br>\
                             </p>\
                             </div >\
                             </div >\
                         ');
-                });
+                
             }
         });
     });
@@ -84,35 +89,6 @@ $(function () {
         });
     });
 
-    $('#get-contact').on('click', function () {
-        $.ajax({
-            url: 'http://localhost:8081/farmer/mycontact',
-            method: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({ username: document.getElementById("username").innerHTML }),
-            success: function (response) {
-                console.log(response);
-                var temp1 = $('div#details');
-                var temp2 = $('div#display');
-                var tbodyEl = $('tbody');
-                var theadEl = $('thead');
-                temp1.html('');
-                temp2.html('');
-                theadEl.html('');
-                tbodyEl.html('');
-                response.details.forEach(function (detail) {
-                    temp1.append('\
-                            <div class="card m-auto pl-2">\
-                            <div class="card-body">\
-                            <p class="card-text text-dark font-weight-bold"><br>\
-                            Phone No. : '+ detail.phoneNo + '<br>\
-                            </p>\
-                            </div></div>\
-                           ');
-                });
-            }
-        });
-    });
 
     $('#get-society').on('click', function () {
         $.ajax({

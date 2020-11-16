@@ -19,7 +19,7 @@ app.post('/farmer/mydetails', urlencodedParser, function (req, res) {
     con.connect(function(err){
         console.log("Connected to database");
         console.log(req.body.username);
-        con.query(`select F.firstName,F.lastName,F.aadhaarF,F.gender,DATE_FORMAT(F.DoB,"%d %M %Y") as DoB,F.doorNo,F.locality,F.pincode,P.city from farmer F,pincode P where F.farmerEmail="${req.body.username}" and F.pincode=P.pincode;`,function(err,results){
+        con.query(`select F.firstName,F.lastName,F.aadhaarF,F.gender,DATE_FORMAT(F.DoB,"%d %M %Y") as DoB,F.doorNo,F.locality,F.pincode,P.city ,ph.phoneNo from farmer F,pincode P ,phonebook ph where F.farmerEmail="${req.body.username}" and F.pincode=P.pincode and ph.aadhaar=F.aadhaarF;`,function(err,results){
              console.log(results);
              res.send({details: results});
     
@@ -37,15 +37,7 @@ app.post('/farmer/myaccount', urlencodedParser, function (req, res) {
     });
 });
 
-app.post('/farmer/mycontact', urlencodedParser, function (req, res) {
-    con.connect(function(err){
-        console.log("Connected to database ");
-        con.query(`select F.farmerEmail,P.phoneNo from farmer F,phonebook P where F.farmerEmail="${req.body.username}" and F.aadhaarF=P.aadhaar;`,function(err,results){
-              //console.log(results[0]);
-               res.send({details: results});
-        });
-    });
-});
+
 
 app.post('/farmer/mysociety', urlencodedParser, function (req, res) {
     con.connect(function(err){
