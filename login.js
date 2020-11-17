@@ -5,7 +5,7 @@ var mysql = require('mysql');
 var fs = require('fs');
 var path = require('path');
 
-var filePath = path.join(__dirname, '../RegFarmer.html');
+// var filePath = path.join(__dirname, '../RegFarmer.html');
 
 var con = mysql.createConnection({
   host: "127.0.0.1",
@@ -14,10 +14,11 @@ var con = mysql.createConnection({
   database: "mydb"
 });
 
-app.set('view engine','ejs');
-app.use(express.static("public"));
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
+app.set('view engine','ejs');
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 
 app.post('/new_farmer', urlencodedParser, function (req, res) {
@@ -169,6 +170,11 @@ con.connect(function(err){
 
 });
 
+
+
+
+
+
 app.post('/login', urlencodedParser, function(req, res){
 
 
@@ -249,4 +255,4 @@ app.post('/login', urlencodedParser, function(req, res){
 
 });
 
-app.listen(3000);
+var server = app.listen(3000, function () {});

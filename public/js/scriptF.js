@@ -182,7 +182,7 @@ $(function () {
                 url: 'http://localhost:8081/farmer/fetchfarmer',
                 method: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({ username: document.getElementById("username").innerHTML, mailS: mailS, fromdate: fdate, todate: tdate }),
+                data: JSON.stringify({ username: document.getElementById("username").innerHTML, fromdate: fdate, todate: tdate }),
                 success: function (response) {
                     //console.log(response);
                     var temp1 = $('div#details');

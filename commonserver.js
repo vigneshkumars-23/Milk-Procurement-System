@@ -3,9 +3,7 @@ var mysql = require('mysql');
 var bodyParser = require('body-parser');
 let app = express();
 
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
-app.use(express.static(__dirname));
-app.use(bodyParser.json());
+var urlencodedParser = bodyParser.urlencoded({ extended: true });
 
 var con = mysql.createConnection({
   host: "127.0.0.1",
@@ -14,6 +12,10 @@ var con = mysql.createConnection({
   database: "mydb",
   port: '3306'
 });
+
+app.use(bodyParser.json());
+app.use(urlencodedParser);
+app.use(express.static(__dirname+"/public"));
 
 app.post('/farmer/mydetails', urlencodedParser, function (req, res) {
     con.connect(function(err){
@@ -51,7 +53,6 @@ app.post('/farmer/mysociety', urlencodedParser, function (req, res) {
 //fetch transaction details
 app.post('/farmer/fetchfarmer', urlencodedParser, function (req, res) {
     console.log(req.body.username);
-    console.log(req.body.mailS);
     console.log(req.body.fromdate);
     console.log(req.body.todate);
     con.connect(function(err){
