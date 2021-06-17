@@ -255,4 +255,8 @@ app.post('/login', urlencodedParser, function(req, res){
 
 });
 
+app.get('/logout',function(req,res){
+  res.render('login');
+})
+
 var server = app.listen(3000, function () {});
